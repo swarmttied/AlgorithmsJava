@@ -110,4 +110,39 @@ public class LinkedList {
             current = current.next;
         }
     }
+    
+    private Node getNthNodeFromEnd(int posFromEnd) {
+        Node front = _head;
+        for (int i=0; i<posFromEnd; i++) {
+            front = front.next;
+        }
+        Node back = _head;        
+        while (front.next != null) {
+            front = front.next;
+            back = back.next;
+        }
+        return back;
+    }
+    
+    public int getNthFromEnd(int posFromEnd) {        
+        Node node = getNthNodeFromEnd(posFromEnd);
+        return node.next.data;              
+    }
+    
+    public void deleteNthFromEnd(int posFromEnd) {
+        Node node = getNthNodeFromEnd(posFromEnd);
+        if (node.next.next != null)
+            node.next = node.next.next;
+        else
+            node.next = null;
+    }
+    
+    public void deleteFirstNNodes(int nNodes) {
+        int i = 0;
+        while (i<nNodes && _head != null)
+        {
+            _head = _head.next;
+            i++;
+        }
+    }
 }

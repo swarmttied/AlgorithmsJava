@@ -37,8 +37,7 @@ public class LinkedListTest {
     }
     
     @After
-    public void tearDown() {
-        
+    public void tearDown() {        
     }
 
     /**
@@ -126,8 +125,45 @@ public class LinkedListTest {
         _target.append(2);
         _target.distinct();
         int[] values = _target.toArray();
-        assertEquals("toArray() size not correct after removal", 3, _target.toArray().length);
-        
+        assertEquals("toArray() size not correct after removal", 3, _target.toArray().length);        
     }
+    
+    @Test
+    public void getNthFromEnd_test() {
+        _target.append(1);
+        _target.append(2);
+        _target.append(3);
+        _target.append(4);
+        _target.append(5);
+        
+        int data = _target.getNthFromEnd(2);
+        assertEquals("2nd Element from end not correct", 4, data);
+    }
+    
+    @Test
+    public void deleteNthFromEnd_test() {
+        _target.append(1);
+        _target.append(2);
+        _target.append(3);
+        _target.append(4);
+        _target.append(5);
+        
+        int expectedSize = _target.getSize() -1;
+        
+        _target.deleteNthFromEnd(2);
+        assertEquals("Size not correct after delete", expectedSize, _target.getSize());
+    }
+    
+    @Test 
+    public void deleteFirstNNodes_test() {
+        _target.append(1);
+        _target.append(2);
+        _target.append(3);
+        int expectedSize = _target.getSize() - 4;  
+        _target.deleteFirstNNodes(5);
+        assertEquals("Size not correct after delete", expectedSize, _target.getSize());
+    }
+    
+    
     
 }
