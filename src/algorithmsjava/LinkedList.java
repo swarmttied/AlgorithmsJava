@@ -145,4 +145,36 @@ public class LinkedList {
             i++;
         }
     }
+    
+    public void deleteEnd(){ 
+        
+        if (_head == null)
+            return;
+        
+        if (_head.next == null)
+        {
+            _head = null;
+            return;
+        }
+        
+        Node current = _head;      
+        while (current.next.next != null)
+            current = current.next;
+        current.next = null;
+    }       
+    
+    public int itemAt(int index) throws Exception{
+        Node current = _head;
+        int i = 0;
+        while (current != null && i < index)
+        {
+            current = current.next;
+        }
+        if (current == null)            
+            throw new Exception();
+        
+        return current.data;
+        
+    }
+    
 }
