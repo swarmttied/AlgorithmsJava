@@ -291,8 +291,10 @@ public class LinkedList {
            total -= digit * Math.pow(10, power);
            power++;          
            curr.data = digit;
-           curr.next = new Node();
-           curr = curr.next;
+           if (total > 0) {
+                curr.next = new Node();
+                curr = curr.next;
+           }
        }
        return head;
     }
