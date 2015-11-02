@@ -164,6 +164,52 @@ public class LinkedListTest {
         assertEquals("Size not correct after delete", expectedSize, _target.getSize());
     }
     
+    @Test
+    public void pivotAt_test() {
+        //0
+        _target.append(5);
+        _target.append(6);
+        _target.append(7);
+        _target.append(8);
+        _target.append(4);
+        _target.append(3);
+        _target.append(2);
+        _target.append(1);
+        
+        _target.pivotAt(4);
+        
+        int[] values = _target.toArray();
+       
+        assertEquals(3,values[0]);
+        assertEquals(2,values[1]);
+        assertEquals(1,values[2]);
+        assertEquals(0,values[3]);        
+        assertEquals(4,values[4]);
+        assertEquals(5,values[5]);
+        assertEquals(6,values[6]);
+        assertEquals(7,values[7]);
+        assertEquals(8,values[8]);     
+    }
     
+    @Test
+    public void addReverse_test() {
+        LinkedList a = new LinkedList();
+        a.setInitialValue(7);
+        a.append(1);
+        a.append(6);
+        
+        //592
+        LinkedList b = new LinkedList();
+        b.setInitialValue(5);
+        b.append(9);
+        b.append(2);
+        
+        LinkedList.Node sum = a.addReverse(b.getHead());       
+        
+        assertEquals(2,sum.data);
+        assertEquals(1,sum.next.data);
+        assertEquals(9,sum.next.next.data);
+
+    }
     
 }
