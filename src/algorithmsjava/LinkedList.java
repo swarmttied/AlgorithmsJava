@@ -14,8 +14,8 @@ public class LinkedList {
     class Node {     
         Node next;        
         int data;
-    }      
-    
+    }     
+      
     private Node _head;   
    
     public LinkedList() {

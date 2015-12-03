@@ -164,6 +164,62 @@ public class LinkedListTest {
         assertEquals("Size not correct after delete", expectedSize, _target.getSize());
     }
     
+    @Test
+    public void deleteEnd_3Nodes_test(){
+      _target.append(1);
+      _target.append(2);
+      int expectedSize = _target.getSize() - 1;
+      _target.deleteEnd();
+      assertEquals("Size not correct after delete", expectedSize, _target.getSize());
+    }
+    
+    @Test
+    public void deleteEnd_2Nodes_test(){
+      _target.append(1);      
+      int expectedSize = _target.getSize() - 1;
+      _target.deleteEnd();
+      assertEquals("Size not correct after delete", expectedSize, _target.getSize());
+    }
+    
+    @Test
+    public void deleteEnd_1Node_test(){      
+      int expectedSize = _target.getSize() - 1;
+      _target.deleteEnd();
+      assertEquals("Size not correct after delete", expectedSize, _target.getSize());
+    }
+    
+    @Test
+    public void deleteEnd_Empty_test(){           
+      int expectedSize = _target.getSize() - 1;
+      _target.deleteEnd();
+      assertEquals("Size not correct after delete", expectedSize, _target.getSize());      
+      _target.deleteEnd();
+      assertEquals("Size not correct after deleting empty.", expectedSize, _target.getSize());
+    }
+    
+    @Test
+    public void itemAt_empty_test() {
+        
+    }
+    
+    @Test
+    public void itemAt_indexInRange_test() {
+        _target.append(1);
+        _target.append(2);
+        Integer index = 1;
+        try {
+            int val = _target.itemAt(4);
+            assertEquals("Value not correct at index " + index.toString(),1,val);
+        }
+        catch (Exception ex)
+        {
+            fail();
+        }       
+    }
+    
+    public void itemAt_indexOutOfRange_test() {
+        
+    }
     
     
 }
