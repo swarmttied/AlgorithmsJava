@@ -71,7 +71,7 @@ public class MultiStack {
     public int pop(int stackNo) {
         HeadNode current = _headOfHeads;
         int index = 0;
-        while(index < stackNo || current != null) {
+        while(index < stackNo && current != null) {
             current = current.next;
             index++;
         }
