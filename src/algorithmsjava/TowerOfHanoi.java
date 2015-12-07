@@ -59,8 +59,8 @@ public class TowerOfHanoi {
             _towers[targetTower].next = null;
         }
         else {
-            target.next = _towers[targetTower];
-            _towers[targetTower] = target;            
+            diskToMove.next = _towers[targetTower];
+            _towers[targetTower] = diskToMove;            
         }            
     }
     
